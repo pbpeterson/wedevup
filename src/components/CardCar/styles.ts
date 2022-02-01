@@ -1,4 +1,8 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
+
+type FinalPriceProps = {
+  isPromotional?: boolean
+}
 
 export const Wrapper = styled.div`
   max-width: 30rem;
@@ -80,7 +84,33 @@ export const FinalPriceInfo = styled.strong`
   font-size: 1.5rem;
   padding-left: 2rem;
 `
-export const FinalPrice = styled.p`
+
+const finalPriceModifiers = {
+  isPromotional: () => css`
+    color: white;
+    text-decoration: line-through;
+    background: #718096;
+  `,
+}
+export const FinalPrice = styled.p<FinalPriceProps>`
+  ${({ isPromotional }) => css`
+    font-size: 1.5rem;
+    color: #fff;
+    font-weight: bold;
+    background: linear-gradient(360deg, rgb(239, 60, 78) 0%, rgb(186, 1, 8) 50%)
+      repeat scroll 0% 0%;
+    padding: 0.5rem;
+    border-radius: 0.4rem;
+    ${isPromotional && finalPriceModifiers.isPromotional()}
+  `}
+`
+
+export const FinalPriceBox = styled.div`
+  display: flex;
+  gap: 1rem;
+`
+
+export const PromotionalPrice = styled.p`
   font-size: 1.5rem;
   color: #fff;
   font-weight: bold;

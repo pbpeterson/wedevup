@@ -7,7 +7,9 @@ export const Wrapper = styled.div`
 
 export const SelectWrapper = styled.div`
   display: flex;
-  justify-content: space-between;
+  gap: 2rem;
+  padding-left: 2rem;
+  margin-bottom: 4rem;
 `
 
 export const Cars = styled.div`

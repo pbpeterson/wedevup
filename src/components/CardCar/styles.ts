@@ -27,6 +27,7 @@ export const PricePerKmWrapper = styled.div`
   align-items: center;
   padding-left: 2rem;
   color: #718096;
+  margin-top: 1rem;
 `
 export const PricePerKmInfo = styled.strong`
   font-size: 1.5rem;
@@ -48,7 +49,6 @@ export const PricePerDay = styled.p`
   background: #121212;
   padding: 0.5rem;
   border-radius: 0.4rem;
-  margin-top: 1rem;
 `
 
 export const PricePerDayWrapper = styled.div`

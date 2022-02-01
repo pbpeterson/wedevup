@@ -1,6 +1,9 @@
 import styled from 'styled-components'
 
 export const Wrapper = styled.div`
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
   &::before {
     position: absolute;
     top: 0;
@@ -23,7 +26,7 @@ export const Select = styled.select`
   color: white;
   padding: 0.7rem;
   border: none;
-  font-size: 20px;
+  font-size: 1.5rem;
   box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
   -webkit-appearance: button;
   appearance: button;
@@ -31,5 +34,11 @@ export const Select = styled.select`
 `
 
 export const Option = styled.option`
-  padding: 3rem;
+  padding: 1rem;
+`
+
+export const Label = styled.label`
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #fff;
 `

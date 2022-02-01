@@ -28,9 +28,13 @@ const SelectFilter = ({ selectType }: SelectParams) => {
 
   return (
     <S.Wrapper>
+      <S.Label htmlFor={selectType}>
+        {selectType === 'day' ? 'Selecione os dias' : 'Selecione os Kilometros'}
+      </S.Label>
       <S.Select
         data-testid="select"
         onChange={handleSelectChange}
+        id={selectType}
         value={selectType === 'day' ? priceByDay : priceByKm}
       >
         {options.map((option) => (

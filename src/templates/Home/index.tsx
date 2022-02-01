@@ -13,7 +13,7 @@ const HomeTemplate = () => {
     const getCars = async () => {
       const res = await (
         await fetch(
-          `http://localhost:3001/cars.json?duration=${priceByDay}&distance=${priceByKm}`
+          `${process.env.NEXT_PUBLIC_ENDPOINTAPI}?duration=${priceByDay}&distance=${priceByKm}`
         )
       ).json()
       setCars(res)

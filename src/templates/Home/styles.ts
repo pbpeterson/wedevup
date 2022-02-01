@@ -10,6 +10,10 @@ export const SelectWrapper = styled.div`
   gap: 2rem;
   padding-left: 2rem;
   margin-bottom: 4rem;
+
+  @media (max-width: 45rem) {
+    justify-content: center;
+  }
 `
 
 export const Cars = styled.div`

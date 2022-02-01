@@ -1,4 +1,5 @@
 import GlobalStyles from '../src/styles/global'
+import { FilterProvider } from '../src/hooks/filter/index'
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
@@ -14,8 +15,10 @@ export const parameters = {
 export const decorators = [
   (Story) => (
     <>
-      <Story />
-      <GlobalStyles />
+      <FilterProvider>
+        <Story />
+        <GlobalStyles />
+      </FilterProvider>
     </>
   ),
 ];

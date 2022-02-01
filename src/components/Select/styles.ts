@@ -1,8 +1,6 @@
 import styled from 'styled-components'
 
 export const Wrapper = styled.div`
-  position: absolute;
-
   &::before {
     position: absolute;
     top: 0;

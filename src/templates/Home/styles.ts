@@ -29,6 +29,7 @@ export const Cars = styled.div`
 export const PaginatorWrapper = styled.div`
   padding: 2rem;
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   gap: 2rem;
 `
@@ -53,6 +54,7 @@ export const PagintorItem = styled.button<PaginatorItemProps>`
     border-radius: 0.5rem;
     display: flex;
     align-items: center;
+
     justify-content: center;
     background-color: transparent;
     cursor: pointer;

@@ -38,6 +38,7 @@ export default class MyDocument extends Document {
     return (
       <Html lang="en-US">
         <Head />
+        <title>Pbcars</title>
         <body>
           <Main />
           <NextScript />

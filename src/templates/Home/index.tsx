@@ -10,7 +10,7 @@ const HomeTemplate = () => {
   const itensPerPage = 6
   const [currentPage, setCurrentPage] = useState<number>(0)
   const { priceByDay, priceByKm } = useFilter()
-  const startIndex = currentPage + itensPerPage
+  const startIndex = currentPage * itensPerPage
   const endIndex = startIndex + itensPerPage
   const currentCars = cars?.slice(startIndex, endIndex)
 
@@ -47,6 +47,7 @@ const HomeTemplate = () => {
           {Array.from(Array(totalPages), (item, index) => {
             return (
               <S.PagintorItem
+                key={item}
                 isActive={index == currentPage}
                 value={index}
                 onClick={handleClick}

@@ -4,6 +4,7 @@ export const Wrapper = styled.div`
   max-width: 30rem;
   background: #fff;
   border-radius: 0.4rem;
+  margin: 0 auto;
 `
 
 export const Image = styled.img`
@@ -60,4 +61,31 @@ export const PricePerDayWrapper = styled.div`
 `
 export const PricePerDayInfo = styled.strong`
   font-size: 1.5rem;
+`
+
+export const FinalPriceDivider = styled.div`
+  display: block;
+  width: 100%;
+  height: 0.1rem;
+  background: #eee;
+  margin: 2rem 0 1rem 0.5rem;
+`
+
+export const FinalPriceWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`
+export const FinalPriceInfo = styled.strong`
+  font-size: 1.5rem;
+  padding-left: 2rem;
+`
+export const FinalPrice = styled.p`
+  font-size: 1.5rem;
+  color: #fff;
+  font-weight: bold;
+  background: linear-gradient(360deg, rgb(239, 60, 78) 0%, rgb(186, 1, 8) 50%)
+    repeat scroll 0% 0%;
+  padding: 0.5rem;
+  border-radius: 0.4rem;
 `

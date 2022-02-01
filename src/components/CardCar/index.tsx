@@ -1,3 +1,4 @@
+import { useFilter } from '../../hooks/filter'
 import * as S from './styles'
 
 export type CardCarProps = {
@@ -15,6 +16,8 @@ const CardCar = ({
   pricePerDay,
   pricePerKm,
 }: CardCarProps) => {
+  const { priceByDay, priceByKm } = useFilter()
+
   return (
     <S.Wrapper>
       <S.Image src={picturePath} alt={`Foto do carro ${brand} ${model}`} />
@@ -40,6 +43,19 @@ const CardCar = ({
             }).format(pricePerKm / 100)}
           </S.PricePerKm>
         </S.PricePerKmWrapper>
+
+        <S.FinalPriceDivider />
+        <S.FinalPriceWrapper>
+          <S.FinalPriceInfo>Preço final:</S.FinalPriceInfo>
+          <S.FinalPrice data-testid="finalprice">
+            {new Intl.NumberFormat('de-DE', {
+              style: 'currency',
+              currency: 'EUR',
+            }).format(
+              (priceByDay * pricePerDay + pricePerKm * priceByKm) / 100
+            )}
+          </S.FinalPrice>
+        </S.FinalPriceWrapper>
       </S.Prices>
     </S.Wrapper>
   )

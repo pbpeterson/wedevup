@@ -3,8 +3,10 @@ import styled, { keyframes } from 'styled-components'
 export const Loader = styled.div`
   display: inline-block;
   position: relative;
-  width: 80px;
-  height: 80px;
+  width: 20rem;
+  height: 20rem;
+  align-self: center;
+  margin-top: 20rem;
 
   & div:nth-child(1) {
     animation-delay: -0.45s;
@@ -29,10 +31,10 @@ export const LoaderDiv = styled.div`
   box-sizing: border-box;
   display: block;
   position: absolute;
-  width: 64px;
-  height: 64px;
-  margin: 8px;
-  border: 8px solid #ba0108;
+  width: 20rem;
+  height: 20rem;
+  margin: 2.5rem;
+  border: 2.5rem solid #ba0108;
   border-radius: 50%;
   animation: ${ldsRing} 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
   border-color: #ba0108 transparent transparent transparent;

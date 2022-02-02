@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { useState } from 'react'
 import CardCar, { CardCarProps } from '../../components/CardCar'
+import Loader from '../../components/Loader'
 import SelectFilter from '../../components/Select'
 import { useFilter } from '../../hooks/filter'
 import * as S from './styles'
@@ -13,17 +14,20 @@ const HomeTemplate = () => {
   const startIndex = currentPage * itensPerPage
   const endIndex = startIndex + itensPerPage
   const currentCars = cars?.slice(startIndex, endIndex)
+  const [isLoading, setIsLoader] = useState<boolean>(false)
 
   const totalPages = cars?.length ? Math.ceil(cars.length / itensPerPage) : 0
 
   useEffect(() => {
     const getCars = async () => {
+      setIsLoader(true)
       const res = await (
         await fetch(
           `${process.env.NEXT_PUBLIC_ENDPOINTAPI}?duration=${priceByDay}&distance=${priceByKm}`
         )
       ).json()
       setCars(res)
+      setIsLoader(false)
     }
     getCars()
   }, [priceByDay, priceByKm])
@@ -34,29 +38,35 @@ const HomeTemplate = () => {
   return (
     <>
       <S.Wrapper>
-        <S.SelectWrapper>
-          <SelectFilter selectType="day" />
-          <SelectFilter selectType="km" />
-        </S.SelectWrapper>
-        <S.Cars>
-          {currentCars?.map((car) => (
-            <CardCar key={car.model} {...car} />
-          ))}
-        </S.Cars>
-        <S.PaginatorWrapper style={{ color: 'white' }}>
-          {Array.from(Array(totalPages), (item, index) => {
-            return (
-              <S.PagintorItem
-                key={item}
-                isActive={index == currentPage}
-                value={index}
-                onClick={handleClick}
-              >
-                {index + 1}
-              </S.PagintorItem>
-            )
-          })}
-        </S.PaginatorWrapper>
+        {isLoading ? (
+          <Loader />
+        ) : (
+          <>
+            <S.SelectWrapper>
+              <SelectFilter selectType="day" />
+              <SelectFilter selectType="km" />
+            </S.SelectWrapper>
+            <S.Cars>
+              {currentCars?.map((car) => (
+                <CardCar key={car.model} {...car} />
+              ))}
+            </S.Cars>
+            <S.PaginatorWrapper style={{ color: 'white' }}>
+              {Array.from(Array(totalPages), (item, index) => {
+                return (
+                  <S.PagintorItem
+                    key={item}
+                    isActive={index == currentPage}
+                    value={index}
+                    onClick={handleClick}
+                  >
+                    {index + 1}
+                  </S.PagintorItem>
+                )
+              })}
+            </S.PaginatorWrapper>
+          </>
+        )}
       </S.Wrapper>
     </>
   )

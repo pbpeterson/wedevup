@@ -55,7 +55,7 @@ const HomeTemplate = () => {
               {Array.from(Array(totalPages), (item, index) => {
                 return (
                   <S.PagintorItem
-                    key={item}
+                    key={index}
                     isActive={index == currentPage}
                     value={index}
                     onClick={handleClick}

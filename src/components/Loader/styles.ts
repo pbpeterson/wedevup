@@ -1,8 +1,8 @@
 import styled, { keyframes } from 'styled-components'
 
 export const Loader = styled.div`
-  display: inline-block;
-  position: relative;
+  display: flex;
+  justify-content: center;
   width: 20rem;
   height: 20rem;
   align-self: center;

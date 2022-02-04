@@ -16,6 +16,7 @@ export const SelectWrapper = styled.div`
 
   @media (max-width: 45rem) {
     justify-content: center;
+    padding-left: 0rem;
   }
 `
 
